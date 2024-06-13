@@ -30,7 +30,7 @@ class Hall(Star_Cinema):
         self.__seats[show_id] = [[0 for _ in range(self.__cols)] for _ in range(self.__rows)]
 
     def isValid(self,i, j):
-        return (i>=0 and i < self.__rows) and (j>=0 and j < self.__cols)
+        return 0 <= i < self.__rows and 0 <= j < self.__cols
 
 
     def book_seats(self, show_id, seatList):
@@ -56,12 +56,12 @@ class Hall(Star_Cinema):
     
     def view_show_list(self):
         if not self.__show_list:
-            print(text_format+"No shows are currently running.")
+            print(text_format + "No shows are currently running.")
             return
         
-        print('\n'+text_format+"\t\t----------------------------------")
-        print(text_format+"\t\t\tList of Running show")
-        print(text_format+"\t\t----------------------------------\n")
+        print('\n' + text_format + "\t\t----------------------------------")
+        print(text_format + "\t\t\tList of Running show")
+        print(text_format + "\t\t----------------------------------\n")
         for show in self.__show_list:
             print(f"{text_format}Movei Name: {show[1]}({show[0]}) Show Id: {show[0]} Time: {show[2]}")
         print()
@@ -72,9 +72,9 @@ class Hall(Star_Cinema):
             return
         
         ct = 0
-        print('\n'+text_format+"\t\t----------------------------------")
-        print(text_format+"\t\t\tAvailable Seat List")
-        print(text_format+"\t\t----------------------------------\n")
+        print('\n' + text_format + "\t\t----------------------------------")
+        print(text_format + "\t\t\tAvailable Seat List")
+        print(text_format + "\t\t----------------------------------\n")
         for i in range(self.__rows):
             for j in range(self.__cols):
                 if self.__seats[show_id][i][j] == 0:
